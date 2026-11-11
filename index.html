@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#090b16" />
+  <link rel="icon" href="data:," />
+  <title>CURSED CLASH — Pixel Arena</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="app">
+    <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+    <header class="topbar"><a class="brand" href="#" aria-label="Cursed Clash home"><span class="brand-mark">呪</span><span>CURSED<span class="brand-light">CLASH</span></span></a><div class="top-meta"><span class="live-dot"></span> PIXEL ARENA <i>•</i> SEASON 01</div><button class="sound-toggle" id="soundToggle" aria-label="Toggle sound">♪ <span>SOUND ON</span></button></header>
+    <section class="screen active" id="menuScreen">
+      <div class="menu-copy"><div class="eyebrow"><span class="eyebrow-line"></span> JUJUTSU HIGH // COMBAT SIMULATOR</div><h1>CURSED<br><span>CLASH</span></h1><p class="hero-sub">The next generation of sorcerers<br>settles it in the arena.</p><div class="menu-actions"><button class="primary-btn" data-mode="battle"><span>ENTER THE ARENA</span><b>↗</b></button><button class="secondary-btn" data-mode="practice"><span class="play-icon">▷</span> PRACTICE MODE</button></div><div class="microcopy"><span class="keycap">WASD</span> MOVE <span class="micro-sep">/</span><span class="keycap">J</span> STRIKE <span class="micro-sep">/</span><span class="keycap">K</span> TECHNIQUE</div></div>
+      <div class="hero-stage"><div class="hero-orbit orbit-a"></div><div class="hero-orbit orbit-b"></div><div class="hero-sigil">呪</div><div class="hero-character hero-left" data-fighter="yuji"></div><div class="hero-character hero-right" data-fighter="gojo"></div><div class="hero-versus">VS</div><div class="hero-caption"><span>CURSED ENERGY // 01</span><span>DOMAIN EXPANSION</span></div><div class="hero-sparks"></div></div>
+      <div class="menu-footer"><span>© CURSED CLASH PROJECT</span><span>BUILT FOR THE BATTLE-READY <b>✳</b></span><span>V 1.0.4</span></div>
+    </section>
+    <section class="screen" id="selectScreen">
+      <div class="select-heading"><button class="back-btn" id="backToMenu">← <span>BACK</span></button><div><div class="eyebrow"><span class="eyebrow-line"></span> STEP 01 / FIGHTER SELECT</div><h2>CHOOSE YOUR <em>FIGHTER</em></h2></div><div class="mode-pill" id="modeLabel">VERSUS BATTLE</div></div>
+      <div class="selection-layout"><div class="roster-panel"><div class="roster-top"><span>ROSTER <b id="rosterCount">20</b></span><span class="roster-hint">TAP TO SELECT</span></div><div class="roster-grid" id="rosterGrid"></div></div><aside class="fighter-preview"><div class="preview-top"><span id="previewRole">YOUR FIGHTER</span><span class="preview-id">#<b id="previewNum">01</b></span></div><div class="preview-art" id="previewArt"><div class="preview-glow"></div><div class="preview-fighter"></div><span class="preview-watermark">呪</span></div><div class="preview-info"><div class="character-kana" id="characterKana">虎杖 悠仁</div><h3 id="characterName">YUJI ITADORI</h3><p id="characterTitle">THE UNBREAKABLE VESSEL</p><div class="stat-list"><div class="stat-row"><span>POWER</span><div class="stat-track"><i id="statPower"></i></div><b id="powerNum">84</b></div><div class="stat-row"><span>TECHNIQUE</span><div class="stat-track"><i id="statTechnique"></i></div><b id="techNum">68</b></div><div class="stat-row"><span>SPEED</span><div class="stat-track"><i id="statSpeed"></i></div><b id="speedNum">82</b></div></div><div class="preview-ability"><span class="ability-icon">✦</span><div><b id="abilityName">DIVERGENT FIST</b><small>SPECIAL TECHNIQUE</small></div></div><button class="confirm-btn" id="confirmFighter">LOCK IN FIGHTER <b>→</b></button></div></aside></div>
+      <div class="select-footer"><span>SELECT A FIGHTER TO VIEW THEIR TECHNIQUE</span><span><b>20</b> SORCERERS & CURSES <i>•</i> 1 ARENA</span></div>
+    </section>
+    <section class="screen" id="gameScreen">
+      <div class="game-shell"><div class="game-topbar"><button class="back-btn" id="exitBattle">← <span>EXIT</span></button><div class="round-label"><span>JUJUTSU HIGH</span><b>EXHIBITION MATCH</b><span>ROUND 01</span></div><button class="pause-btn" id="pauseBtn">Ⅱ</button></div>
+        <div class="arena-frame"><canvas id="gameCanvas" width="960" height="540" aria-label="Pixel fighting game arena"></canvas><div class="game-hud"><div class="health-block player-hud"><div class="hud-name"><b id="playerHudName">YUJI ITADORI</b><span>1P <i>●●●</i></span></div><div class="health-track"><i id="playerHealth"></i></div><div class="energy-track"><i id="playerEnergy"></i></div></div><div class="timer"><span>TIME</span><b id="timerValue">99</b></div><div class="health-block enemy-hud"><div class="hud-name"><span>CPU <i>●●●</i></span><b id="enemyHudName">GOJO SATORU</b></div><div class="health-track"><i id="enemyHealth"></i></div><div class="energy-track"><i id="enemyEnergy"></i></div></div></div><div class="battle-callout" id="battleCallout">FIGHT!</div><div class="pause-overlay" id="pauseOverlay"><div class="pause-card"><span class="eyebrow">BATTLE PAUSED</span><h2>TAKE A BREATH.</h2><button class="primary-btn" id="resumeBtn">RESUME FIGHT <b>→</b></button><button class="secondary-btn" id="rematchBtn">REMATCH</button></div></div><div class="result-overlay" id="resultOverlay"><div class="result-card"><span class="eyebrow" id="resultEyebrow">MATCH COMPLETE</span><h2 id="resultTitle">VICTORY</h2><p id="resultMessage">Your cursed energy burns brighter.</p><button class="primary-btn" id="resultRematch">REMATCH <b>↻</b></button><button class="secondary-btn" id="resultSelect">CHANGE FIGHTERS</button></div></div></div>
+        <div class="controls-row"><div class="control-help"><span><b>W A S D</b> MOVE</span><span><b>J</b> STRIKE</span><span><b>K</b> TECHNIQUE</span><span><b>L</b> ULTIMATE <i>100% ENERGY</i></span></div><div class="touch-controls"><div class="move-pad"><button data-key="ArrowLeft" aria-label="Move left">←</button><button data-key="ArrowRight" aria-label="Move right">→</button><button data-key="ArrowUp" aria-label="Jump">↑</button></div><div class="action-pad"><button class="touch-attack" data-action="attack"><b>J</b><span>STRIKE</span></button><button class="touch-special" data-action="special"><b>K</b><span>TECH</span></button><button class="touch-ultimate" data-action="ultimate"><b>L</b><span>ULT</span></button></div></div></div>
+      </div>
+    </section>
+    <footer class="global-footer"><span>UNOFFICIAL FAN-MADE FIGHTING GAME</span><span>DESIGNED FOR TOUCH <b>✳</b> BUILT TO FIGHT</span></footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
